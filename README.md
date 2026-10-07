@@ -27,7 +27,7 @@ npm run preview
 
 The submit behavior is isolated in `src/fitCheck.ts`.
 
-- By default, the button downloads a text draft to the visitor's device. The page states that nothing was sent.
+- By default, the form displays a prominent preview notice and its button reads "Download Fit Check Draft". It downloads a text draft to the visitor's device and states that nothing was sent.
 - To connect a backend, copy `.env.example` to `.env.local` and set `VITE_FIT_CHECK_ENDPOINT` to an HTTPS endpoint. The form sends a JSON `POST` with the fields in `FitCheckRequest`, expects a 2xx response, and only then shows a sent confirmation.
 - The endpoint must permit the site's origin via CORS and handle server-side validation, spam protection, delivery, storage, and retention. Do not put keys or tokens in any `VITE_` variable: those variables are embedded in public frontend code.
 - Update the privacy text and test the full request flow before public launch.
@@ -48,6 +48,7 @@ edp-audit-site/
 ├── src/fitCheck.ts        isolated submission integration
 ├── src/main.tsx           React entry
 ├── src/styles.css         responsive styles
+├── .github/workflows/      push / PR production build check
 ├── .env.example           optional endpoint configuration
 └── package.json           scripts and dependencies
 ```
